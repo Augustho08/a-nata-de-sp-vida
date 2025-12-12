@@ -3,33 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Access Granted</title>
+    <title>Access</title>
 
     <style>
         body {
             background: #000;
-            color: #0aff0a;
+            color: #fff;
             font-family: "Courier New", monospace;
             margin: 0;
-            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            height: 100vh;
         }
 
-        .box {
-            border: 1px solid #0aff0a;
-            padding: 25px;
+        #terminal {
+            max-width: 700px;
             width: 90%;
-            max-width: 600px;
-            box-shadow: 0 0 25px #0aff0a55;
-        }
-
-        .line {
-            margin-bottom: 12px;
+            border: 1px solid #000;
+            padding: 25px;
+            white-space: pre-wrap;
+            font-size: 1rem;
         }
 
         .cursor {
+            display: inline-block;
+            width: 10px;
             animation: blink 0.7s infinite alternate;
         }
 
@@ -37,25 +36,45 @@
             from { opacity: 1; }
             to { opacity: 0; }
         }
-
-        .glow {
-            text-shadow: 0 0 10px #0aff0a88;
-        }
     </style>
 </head>
 <body>
 
-<div class="box">
-    <div class="line glow">> estabelecendo conexão segura...</div>
-    <div class="line glow">> varrendo sistema...</div>
-    <div class="line glow">> bypass realizado com sucesso...</div>
-    <br>
-    <div class="line glow">
-        > mensagem automática: "tentei hackear seu celular, mas acabou que quem invadiu meu sistema foi você."
-    </div>
-    <br>
-    <div class="line">_ <span class="cursor">█</span></div>
-</div>
+<div id="terminal"></div>
+
+<script>
+const lines = [
+    "> iniciando...",
+    "> checando permissões...",
+    "> acesso confirmado...",
+    "",
+    '> aviso: "tentei hackear seu celular… resultado? você hackeou meu coração."',
+    ""
+];
+
+let t = document.getElementById("terminal");
+let i = 0;
+let char = 0;
+
+function type() {
+    if (i < lines.length) {
+        if (char < lines[i].length) {
+            t.innerHTML += lines[i][char];
+            char++;
+            setTimeout(type, 35);
+        } else {
+            t.innerHTML += "\n";
+            char = 0;
+            i++;
+            setTimeout(type, 120);
+        }
+    } else {
+        t.innerHTML += "_";
+    }
+}
+
+type();
+</script>
 
 </body>
 </html>
