@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Granted</title>
+
+    <style>
+        body {
+            background: #000;
+            color: #0aff0a;
+            font-family: "Courier New", monospace;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box {
+            border: 1px solid #0aff0a;
+            padding: 25px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 0 25px #0aff0a55;
+        }
+
+        .line {
+            margin-bottom: 12px;
+        }
+
+        .cursor {
+            animation: blink 0.7s infinite alternate;
+        }
+
+        @keyframes blink {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        .glow {
+            text-shadow: 0 0 10px #0aff0a88;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <div class="line glow">> estabelecendo conexão segura...</div>
+    <div class="line glow">> varrendo sistema...</div>
+    <div class="line glow">> bypass realizado com sucesso...</div>
+    <br>
+    <div class="line glow">
+        > mensagem automática: "tentei hackear seu celular, mas acabou que quem invadiu meu sistema foi você."
+    </div>
+    <br>
+    <div class="line">_ <span class="cursor">█</span></div>
+</div>
+
+</body>
+</html>
